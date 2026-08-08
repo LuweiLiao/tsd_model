@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="tsd_tree_obstacle">
+    <self_collide>false</self_collide>
+
+    <!-- Three dynamic 2 m links. The world joint anchors the trunk at z=0. -->
+    <link name="tree_link_1">
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 1 0 0 0</pose>
+        <mass>8.0</mass>
+        <inertia>
+          <ixx>2.6733</ixx><iyy>2.6733</iyy><izz>0.0576</izz>
+          <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="tree_link_1_collision">
+        <pose>0 0 1 0 0 0</pose>
+        <geometry><cylinder><radius>0.12</radius><length>2.0</length></cylinder></geometry>
+      </collision>
+      <visual name="tree_link_1_visual">
+        <pose>0 0 1 0 0 0</pose>
+        <geometry><cylinder><radius>0.12</radius><length>2.0</length></cylinder></geometry>
+        <material><ambient>0.25 0.12 0.03 1</ambient><diffuse>0.45 0.20 0.04 1</diffuse></material>
+      </visual>
+    </link>
+
+    <link name="tree_link_2">
+      <pose>0 0 2 0 0 0</pose>
+      <inertial>
+        <pose>0 0 1 0 0 0</pose>
+        <mass>6.0</mass>
+        <inertia>
+          <ixx>2.0067</ixx><iyy>2.0067</iyy><izz>0.0432</izz>
+          <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="tree_link_2_collision">
+        <pose>0 0 1 0 0 0</pose>
+        <geometry><cylinder><radius>0.11</radius><length>2.0</length></cylinder></geometry>
+      </collision>
+      <visual name="tree_link_2_visual">
+        <pose>0 0 1 0 0 0</pose>
+        <geometry><cylinder><radius>0.11</radius><length>2.0</length></cylinder></geometry>
+        <material><ambient>0.20 0.35 0.05 1</ambient><diffuse>0.32 0.55 0.08 1</diffuse></material>
+      </visual>
+    </link>
+
+    <link name="tree_link_3">
+      <pose>0 0 4 0 0 0</pose>
+      <inertial>
+        <pose>0 0 1 0 0 0</pose>
+        <mass>4.0</mass>
+        <inertia>
+          <ixx>1.34</ixx><iyy>1.34</iyy><izz>0.0288</izz>
+          <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="tree_link_3_collision">
+        <pose>0 0 1 0 0 0</pose>
+        <geometry><cylinder><radius>0.10</radius><length>2.0</length></cylinder></geometry>
+      </collision>
+      <visual name="tree_link_3_visual">
+        <pose>0 0 1 0 0 0</pose>
+        <geometry><cylinder><radius>0.10</radius><length>2.0</length></cylinder></geometry>
+        <material><ambient>0.18 0.30 0.04 1</ambient><diffuse>0.28 0.48 0.06 1</diffuse></material>
+      </visual>
+    </link>
+
+    <joint name="tree_base_joint" type="revolute">
+      <parent>world</parent>
+      <child>tree_link_1</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <dynamics><damping>2.0</damping><friction>1.0</friction></dynamics>
+        <limit><lower>-1.45</lower><upper>1.45</upper></limit>
+      </axis>
+    </joint>
+
+    <joint name="tree_link_1_joint" type="revolute">
+      <parent>tree_link_1</parent>
+      <child>tree_link_2</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <dynamics><damping>0.8</damping><friction>0.4</friction></dynamics>
+        <limit><lower>-1.45</lower><upper>1.45</upper></limit>
+      </axis>
+    </joint>
+
+    <joint name="tree_link_2_joint" type="revolute">
+      <parent>tree_link_2</parent>
+      <child>tree_link_3</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <dynamics><damping>0.6</damping><friction>0.3</friction></dynamics>
+        <limit><lower>-1.45</lower><upper>1.45</upper></limit>
+      </axis>
+    </joint>
+  </model>
+</sdf>
