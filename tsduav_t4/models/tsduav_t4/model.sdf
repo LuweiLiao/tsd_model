@@ -330,7 +330,9 @@
             <upper>1.5707963267948966</upper>
           </limit>
           <dynamics>
-            <damping>0.001</damping>
+            <!-- [Cybernetics Ch.4] Add passive hinge dissipation so takeoff
+                 transients and fold onset do not excite an undamped swing. -->
+            <damping>0.2</damping>
           </dynamics>
           <use_parent_model_frame>1</use_parent_model_frame>
         </axis>
