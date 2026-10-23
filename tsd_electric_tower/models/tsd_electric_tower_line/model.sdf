@@ -21,7 +21,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <scale>1 1 1</scale>
+            <scale>0.6 1 1</scale>
             <uri>model://tsd_electric_tower_line/meshes/line.STL</uri>
           </mesh>
         </geometry>
@@ -38,15 +38,15 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <scale>1 1 1</scale>
+            <scale>0.6 1 1</scale>
             <uri>model://tsd_electric_tower_line/meshes/line.STL</uri>
           </mesh>
         </geometry>
         <material>
-          <script>
-            <!-- <name>Gazebo/Blue</name> -->
-            <uri>__default__</uri>
-          </script>
+          <ambient>0.10 0.12 0.14 1</ambient>
+          <diffuse>0.18 0.21 0.24 1</diffuse>
+          <specular>0.06 0.07 0.08 1</specular>
+          <emissive>0 0 0 1</emissive>
         </material>
       </visual>
       <gravity>1</gravity>

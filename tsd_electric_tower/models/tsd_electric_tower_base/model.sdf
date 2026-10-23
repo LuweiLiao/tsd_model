@@ -43,10 +43,10 @@
           </mesh>
         </geometry>
         <material>
-          <script>
-            <!-- <name>Gazebo/Blue</name> -->
-            <uri>__default__</uri>
-          </script>
+          <ambient>0.28 0.32 0.36 1</ambient>
+          <diffuse>0.42 0.47 0.52 1</diffuse>
+          <specular>0.12 0.14 0.16 1</specular>
+          <emissive>0 0 0 1</emissive>
         </material>
       </visual>
       <gravity>1</gravity>
